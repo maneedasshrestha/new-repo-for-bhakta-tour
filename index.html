@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap" rel="stylesheet">
+    <style>
+      /* Global Styles */
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff; /* Cream background */
+        font-family: "Jaro", sans-serif;
+        text-align: center;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 600px;
+        padding: 20px;
+      }
+
+      /* Logo Animation */
+      .logo-container img {
+        width: 80%; /* Adjust the logo size */
+        animation: fadeInLogo 2s ease-out;
+      }
+
+      /* Welcome Text Animation */
+      .welcome-text {
+        font-size: 20px;
+        font-weight: bold;
+        color: #cbb896; /* Brown color */
+        margin-top: 50px;
+        opacity: 0; /* Initially hidden */
+        animation: fadeInText 2s ease-out 1s forwards;
+      }
+      .darker-text{
+        color: #60241A;
+        font-size: larger;
+        font-weight: 900;
+        margin-top: 0;
+      }
+
+      /* Button Animation */
+      .explore-button {
+        margin-top: 30px;
+        padding: 20px 30px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        background-color: #60241A;
+        color: white;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        opacity: 0; /* Initially hidden */
+        animation: fadeInButton 2s ease-out 2s forwards; /* Animation delay for the button */
+      }
+
+      .explore-button:hover {
+        background-color: #4e3c1e;
+        transform: scale(1.1);
+      }
+
+      /* Logo fade-in animation */
+      @keyframes fadeInLogo {
+        0% {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      
+    /* Fade-out Effect */
+    body.fade-out {
+      animation: fadeOut 1s ease-in forwards;
+    }
+
+    /* Keyframes */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeInLogo {
+      0% {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+      /* Text fade-in animation */
+      @keyframes fadeInText {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Button fade-in animation */
+      @keyframes fadeInButton {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      /* Responsive Design */
+      @media screen and (max-width: 768px) {
+        .welcome-text {
+          font-size: 1.5rem;
+        }
+
+        .logo-container img {
+          width: 80%;
+        }
+
+        .explore-button {
+          font-size: 1rem;
+          padding: 20px 20px;
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        .welcome-text {
+          font-size: 1.5rem;
+        }
+
+        .logo-container img {
+          width: 90%;
+        }
+
+        .explore-button {
+          font-size: 1.2rem;
+          padding: 20px 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Logo with Animation -->
+      <div class="logo-container">
+        <img src="assets/Bhakta_tour_logo.png" alt="Logo" /> <!-- Replace with your logo URL -->
+      </div>
+
+      <!-- Welcome Text with Animation -->
+      <div class="welcome-text">
+        Welcome to<br><div class="darker-text"> Bhaktapur</div>
+      </div>
+
+      <!-- Explore Button with Animation -->
+      <button class="explore-button" onclick="redirectWithFade()">
+        Explore-Trusted-Travel
+      </button>
+    </div>
+    
+  <script>
+    function redirectWithFade() {
+      document.body.classList.add('fade-out'); // Add fade-out class to body
+      setTimeout(() => {
+        window.location.href = 'homepage.html'; // Replace with your URL
+      }, 1000); // Match the fade-out animation duration
+    }
+  </script>
+  </body>
+</html>

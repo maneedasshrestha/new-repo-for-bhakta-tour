@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhaktapur Durbar Square</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+      * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+  font-family:  sans-serif;
+}
+
+  .back-button {
+      position: absolute;
+      top: 40px;
+      left: 30px;
+      width: 40px;
+      height: 40px;
+      background-color: #fff;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: box-shadow 0.3s;
+    }
+
+    .back-button:hover {
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .back-button img {
+      width: 16px;
+      height: 16px;
+    }
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+   max-width: 700px;
+   margin: auto;
+}
+
+.header {
+    position: relative;
+}
+
+.header-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+.location-name {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    border-radius: 15px;
+}
+
+main {
+    padding: 20px;
+    flex-grow: 1;
+    background-color: #f9f9f9;
+    border-radius: 10px 10px 0 0;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 16px;
+    color: #555;
+    font-family: "Poppins", sans-serif;
+    text-align: justify;
+    line-height: 1.8;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.stars {
+    color: gold;
+    font-size: 18px;
+    margin-right: 5px;
+}
+
+.score {
+    font-size: 16px;
+    color: #333;
+}
+
+.details {
+    margin-top: 20px;
+}
+
+.btn-details {
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+#microphone{
+  position: fixed;
+  bottom: 115px;
+  right: 30px;
+  border: none;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #D7C3AA;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease; 
+}
+.header{
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 20px;
+}
+.info-section{
+  margin: auto ;
+  width: 100%;
+  border-radius: 20px;
+}
+
+.back-button {
+      position: absolute;
+      top: 20px;
+      left: 30px;
+      width: 40px;
+      height: 40px;
+      background-color: #fff;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: box-shadow 0.3s;
+    }
+
+    .back-button:hover {
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .back-button img {
+      width: 16px;
+      height: 16px;
+    }
+
+/* Media Queries */
+
+/* Mobile Devices */
+@media (max-width: 600px) {
+    .back-button {
+        font-size: 16px; /* Smaller font size */
+        padding: 8px 12px; /* Smaller padding */
+        top: 13px; /* Slightly adjusted position */
+        left: 13px; /* Slightly adjusted position */
+    }
+}
+
+/* Tablets and Small Screens */
+@media (max-width: 768px) {
+    .back-button {
+        font-size: 18px; /* Font size adjustment for tablets */
+        padding: 10px 14px; /* Adjusted padding for a bigger button */
+    }
+}
+
+/* Larger Screens (Desktop and Above) */
+@media (min-width: 1024px) {
+    .back-button {
+        font-size: 20px; /* Larger font size for desktops */
+        padding: 12px 18px; /* Larger padding for better visual appearance */
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .header-image {
+        height: 200px;
+    }
+
+    .location-name {
+        font-size: 18px;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+
+    .rating {
+        font-size: 14px;
+    }
+
+    footer {
+        padding: 8px 0;
+    }
+
+    .bottom-nav-btn img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (min-width: 768px) {
+    .header-image {
+        height: 280px;
+    }
+
+    .location-name {
+        font-size: 26px;
+    }
+
+    .description {
+        font-size: 15px;
+    }
+
+    .rating {
+        font-size: 16px;
+    }
+
+    .btn-details {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .header-image {
+        height: 450px;
+    }
+
+    .location-name {
+        font-size: 34px;
+    }
+
+    .description {
+        font-size: 18px;
+    }
+
+    footer {
+        padding: 15px 0;
+    }
+
+    .bottom-nav-btn img {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+    </style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+  </head>
+
+<body>
+ 
+    <div class="app-container">
+      
+        <header class="header">
+          <button class="back-button" onclick="goBack()">
+            <img src="https://cdn-icons-png.flaticon.com/512/271/271220.png" alt="Back">
+          </button>
+            <img src="assets/bhaktapur_durbar_square.jpg" id="background-img" alt="Bhaktapur Durbar Square" class="header-image">
+            <h1 class="location-name">Bhaktapur Durbar Square</h1>
+        </header>
+        
+    <!-- Chatbot Toggler -->
+    <button id="microphone" onclick="speakText()">
+      <span class="material-symbols-rounded" id="microphone-icon">mic</span>
+    </button>
+
+        <main class="info-section">
+            <section class="overview">
+                <h2>Overview</h2>
+                <p class="description" id="overview">
+                </p>
+                
+            </section>
+            <section class="details">
+              <h2>Details</h2>
+              <p class="description" id="main-description">
+            </p>
+            </section>
+            
+        </main>
+        
+    </div>
+    <div class="button-drawer">
+      <!-- Home Toggler -->
+      <button id="home-button" class=" drawer-button home-button">
+        <span class="material-symbols-outlined">home</span>
+      </button>
+      <!-- search button -->
+      <button id="search-button" class=" drawer-button search-button">
+        <span class="material-symbols-rounded">search</span>
+      </button>
+
+      <!-- scan button -->
+      <button id="scan-button" class=" drawer-button scan-button" onclick="window.location.href='qr_scanner.html'">
+        <span class="material-symbols-outlined">qr_code_scanner</span>
+      </button>
+
+      <!-- Chatbot Toggler -->
+      <button id="chatbot-button" class="chatbot-toggler drawer-button">
+        <span class="material-symbols-outlined">mode_comment</span>
+        <span class="material-symbols-rounded">close</span>
+      </button>
+
+
+
+      <!-- user button -->
+      <button id="user-button" class="drawer-button user-button">
+        <span class="material-symbols-outlined">person</span>
+      </button>
+    </div>
+
+    <div class="chatbot-popup">
+      <!-- Chatbot Header -->
+      <div class="chat-header">
+        <div class="header-info">
+          <h2 class="logo-text style="font-weight:900" >Ask Pasa </h2>
+        </div>
+        <button id="close-chatbot" class="material-symbols-rounded" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+          keyboard_arrow_down
+        </button>
+      </div>
+
+      <!-- Chatbot Body -->
+      <div class="chat-body" >
+        <div class="message bot-message">
+          <img src="assets/chatbot_logo.png" alt="chatbot logo" style="margin: auto;" />
+
+          <!-- prettier-ignore -->
+          
+        </div>
+        <div class="message-text" style="text-align: center;  font-weight: 900; color:#60241A"> How can I help you today? </div>
+      </div>
+
+      <!-- Chatbot Footer -->
+      <div class="chat-footer">
+        <form action="#" class="chat-form">
+          <textarea placeholder="Message..." class="message-input" required></textarea>
+          <div class="chat-controls">
+            <button type="button" id="emoji-picker" class="material-symbols-outlined">
+              sentiment_satisfied
+            </button>
+            <div class="file-upload-wrapper">
+              <input type="file" accept="image/*" id="file-input" hidden />
+              <img src="#" />
+              <button type="button" id="file-upload" class="material-symbols-rounded">
+                attach_file
+              </button>
+              <button type="button" id="file-cancel" class="material-symbols-rounded">
+                close
+              </button>
+            </div>
+            <button type="submit" id="send-message" class="material-symbols-rounded">
+              arrow_upward
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Linking Emoji Mart script for emoji picker -->
+  <script src="https://cdn.jsdelivr.net/npm/emoji-mart@latest/dist/browser.js"></script>
+
+  <!-- Linking custom script -->
+  <script src="script.js"></script>
+
+  <!-- linking appdrawer background change code -->
+  <script src="appdrawer_color_toggle.js"></script>
+
+  <!-- script for highlighting the search button -->
+   <script>
+    active_search_button();
+  </script>
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script type="module" src="id_finder.js"></script>
+
+  <!-- script for speech synthesis -->
+  <script>
+    let isSpeaking = false; // Track whether the speech synthesis is currently active
+let utterance = null;   // Store the utterance globally
+
+function speakText() {
+    const text = document.getElementById('main-description').innerText; // Get the text from the div
+    const button = document.getElementById('microphone'); // Get the button element
+
+    // If already speaking, stop the speech synthesis
+    if (isSpeaking) {
+        speechSynthesis.cancel(); // Stop the current speech
+        console.log("Speech synthesis stopped");
+        button.innerHTML = '<span class="material-symbols-rounded">play_arrow</span>'; // Change icon to play
+        isSpeaking = false;
+        return;
+    }
+
+    // Create a new speech synthesis utterance if not already speaking
+    utterance = new SpeechSynthesisUtterance(text);
+
+    // Check available voices
+    const voices = speechSynthesis.getVoices();
+
+    // Set the language to Hindi (hi-IN)
+    let hindiVoice = voices.find(voice => voice.lang === 'hi-IN');
+    if (hindiVoice) {
+        utterance.voice = hindiVoice; // Set the voice to Hindi
+    } else {
+        console.log("Hindi voice not found. Using default voice.");
+    }
+
+    // Optional: Adjust speed, pitch, and volume
+    utterance.rate = 1;  // Speed (1 is normal speed)
+    utterance.pitch = 1; // Pitch (1 is normal pitch)
+    utterance.volume = 1; // Volume (1 is the maximum)
+
+    // Speak the text aloud
+    speechSynthesis.speak(utterance);
+    console.log("Speech synthesis started");
+    button.innerHTML = '<span class="material-symbols-rounded">pause</span>'; // Change icon to pause
+    isSpeaking = true;
+
+    // Event listener to toggle state when speech ends
+    utterance.onend = () => {
+        console.log("Speech synthesis finished");
+        button.innerHTML = '<span class="material-symbols-rounded">play_arrow</span>'; // Change icon to play
+        isSpeaking = false;
+    };
+}
+
+// Wait for the voices to be loaded
+speechSynthesis.onvoiceschanged = () => {
+    console.log("Available voices:", speechSynthesis.getVoices());
+};
+
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Editing Page</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 600px;
+            margin: auto;
+            margin-top: 10vh;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .title {
+            text-align: center;
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Form Styling */
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        input,
+        textarea {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: #D7C3AA;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #501C0D;
+        }
+
+        /* Image Preview Styling */
+        .image-preview-container {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .image-preview-container img {
+            max-width: 100%;
+            max-height: 300px;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: block;
+            margin-top: 10px;
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+
+            .title {
+                font-size: 1.6em;
+            }
+
+            .form-container {
+                gap: 12px;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                font-size: 0.9em;
+            }
+
+            .submit-btn {
+                font-size: 1em;
+            }
+
+            .image-preview-container img {
+                max-height: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">Edit Heritage Information</h1>
+        <form action="#" method="POST" class="form-container" id="myForm">
+            <div class="form-group">
+                <label for="image-url">Image URL</label>
+                <input type="url" id="image-url" name="image-url" placeholder="Enter image URL" required>
+                <div class="image-preview-container">
+                    <img id="image-preview" src="" alt="Image Preview" style="display: none;">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="heritage-name">Heritage Name</label>
+                <input type="text" id="heritage-name" name="heritage-name" placeholder="Enter heritage name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="overview">Overview</label>
+                <textarea id="overview" name="overview" rows="4" placeholder="Enter a brief overview"
+                    required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" rows="6" required value="abc"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="description">QR</label>
+                <div class="qr-container">
+                    <canvas id="qr-code"></canvas>
+                    <div class="buttons">
+                        <button onclick="downloadQR()">Download QR Code</button>
+                        <button onclick="shareURL()">Share URL</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="submit-btn" id="submit-btn" ><a href="admin_dashboard.html" style="text-decoration: none; color: white; font-weight: 600;">Save Changes</a></button>
+            </div>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script type="module" src="edit_values.js"></script>
+    <script>
+        const imageUrlInput = document.getElementById('image-url');
+        const imagePreview = document.getElementById('image-preview');
+
+        imageUrlInput.addEventListener('input', function () {
+            const imageUrl = imageUrlInput.value;
+            if (imageUrl) {
+                imagePreview.src = imageUrl;
+                imagePreview.style.display = 'block';
+            } else {
+                imagePreview.style.display = 'none';
+            }
+        });
+
+
+    </script>
+
+
+    </script>
+</body>
+
+</html>

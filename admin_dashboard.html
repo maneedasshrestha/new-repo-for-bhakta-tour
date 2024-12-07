@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Bhakta-tour</title>
+  <link rel="stylesheet" href="style.css">
+  <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0"
+    />
+  <style>
+    /* Global styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1000px;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      color: #333;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    /* Create Post Button */
+    .create-post-button {
+      background-color: #D7C3AA;
+      color: white;
+      padding: 15px 25px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .create-post-button:hover {
+      background-color: #d75a6b;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    /* Posts List Section */
+    .posts-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      animation: fadeIn 1s ease-out;
+    }
+
+    .post-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      display: flex;
+      gap: 10px;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      transition: transform 0.3s ease;
+      opacity: 0;
+      width: 100%;
+      animation: fadeInCard 0.5s ease forwards;
+    }
+
+    .post-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .post-ittems{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      border: 1px solid #c7c3c3;
+      padding: 10px;
+      border-radius: 10px;
+    }
+    .titles{
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding-left: 10px;
+    }
+    .post-title {
+      
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .post-meta {
+      font-size: 0.9rem;
+      color: #888;
+      align-items: justify;
+    }
+
+    .view-button {
+      background-color: #D7C3AA;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      min-width: 80px;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .view-button:hover {
+      background-color: #501C0D;
+      transform: scale(1.05);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInCard {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      body {
+        padding: 20px;
+      }
+
+      .header h1 {
+        font-size: 1.6rem;
+      }
+
+      .create-post-button {
+        font-size: 1rem;
+        padding: 12px 20px;
+      }
+
+      .post-card {
+        padding: 15px;
+      }
+
+      .post-title {
+        font-size: 1.1rem;
+      }
+
+      .view-button {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+      }
+
+      .posts-list {
+        margin-top: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header h1 {
+        font-size: 1.4rem;
+      }
+
+      .create-post-button {
+        width: 60%;
+        font-size: 0.9rem;
+      }
+
+      .post-card {
+        padding: 10px;
+      }
+
+      .post-title {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header Section -->
+    <div class="header">
+      <h1>Admin Dashboard</h1>
+      <button class="create-post-button" onclick="window.location.href='add_page.html'">Create a Post</button>
+    </div>
+
+    <!-- Posts List Section -->
+    <div class="posts-list">
+      
+
+      <div class="post-card" id="post-card">
+        
+      </div>
+
+      
+    </div>
+  </div>
+  <div class="button-drawer">
+    <!-- Home Toggler -->
+    <button id="home-button" class=" drawer-button home-button">
+      <span class="material-symbols-outlined">home</span>
+    </button>
+    <!-- search button -->
+    <button id="search-button" class=" drawer-button search-button">
+      <span class="material-symbols-rounded">search</span>
+    </button>
+
+    <!-- scan button -->
+    <button id="scan-button" class=" drawer-button scan-button" onclick="window.location.href='qr_scanner.html'">
+      <span class="material-symbols-outlined">qr_code_scanner</span>
+    </button>
+
+    <!-- Chatbot Toggler -->
+    <button id="chatbot-button" class="chatbot-toggler drawer-button">
+      <span class="material-symbols-outlined">mode_comment</span>
+      <span class="material-symbols-rounded">close</span>
+    </button>
+
+
+
+    <!-- user button -->
+    <button id="user-button" class="drawer-button user-button">
+      <span class="material-symbols-outlined">person</span>
+    </button>
+  </div>
+
+  <div class="chatbot-popup">
+    <!-- Chatbot Header -->
+    <div class="chat-header">
+      <div class="header-info">
+        <h2 class="logo-text style="font-weight:900" >Ask Pasa </h2>
+      </div>
+      <button id="close-chatbot" class="material-symbols-rounded" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+        keyboard_arrow_down
+      </button>
+    </div>
+
+    <!-- Chatbot Body -->
+    <div class="chat-body" >
+      <div class="message bot-message">
+        <img src="assets/chatbot_logo.png" alt="chatbot logo" style="margin: auto;" />
+
+        <!-- prettier-ignore -->
+        
+      </div>
+      <div class="message-text" style="text-align: center;  font-weight: 900; color:#60241A"> How can I help you today? </div>
+    </div>
+
+    <!-- Chatbot Footer -->
+    <div class="chat-footer">
+      <form action="#" class="chat-form">
+        <textarea placeholder="Message..." class="message-input" required></textarea>
+        <div class="chat-controls">
+          <button type="button" id="emoji-picker" class="material-symbols-outlined">
+            sentiment_satisfied
+          </button>
+          <div class="file-upload-wrapper">
+            <input type="file" accept="image/*" id="file-input" hidden />
+            <img src="#" />
+            <button type="button" id="file-upload" class="material-symbols-rounded">
+              attach_file
+            </button>
+            <button type="button" id="file-cancel" class="material-symbols-rounded">
+              close
+            </button>
+          </div>
+          <button type="submit" id="send-message" class="material-symbols-rounded">
+            arrow_upward
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emoji-mart@latest/dist/browser.js"></script>
+
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script type="module" src="dashboard.js"></script>
+
+
+<!-- linking appdrawer background change code -->
+<script src="appdrawer_color_toggle.js"></script>
+  <!-- script for making home button active -->
+  <script> active_profile_icon()</script>
+  
+</body>
+</html>
